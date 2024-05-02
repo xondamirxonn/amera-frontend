@@ -11,7 +11,9 @@ interface BannerType {
 }
 export const getBanner = async (): Promise<BannerType> => {
   try {
-    const res = await fetch("http://135.181.108.207/banner/");
+    const res = await fetch("http://135.181.108.207/banner/", {
+      next: {revalidate: 10}
+    });
     const data = res.json()
 
     return data
