@@ -34,11 +34,12 @@ import {
 } from "@/components/ui/select";
 import { categoryData } from "@/services/getCategory";
 import Layoutbottom from "../home-carusel/layout-bottom/layout-bottom";
+import { ModeToggle } from './../../../components/mode-toggle';
 export const Header = async () => {
   const data = await categoryData();
   // console.log(data)
   return (
-    <div className="w-full fixed bg-white z-50 ">
+    <div className="w-full fixed dark:bg-[#020817]   bg-white z-50 ">
       <div className="container sm:flex sm:flex-col md:flex-row md:items-center justify-between hidden   items-center pt-2 ">
         <h1>Welcome to Worldwide Electronics Store</h1>
         <div>
@@ -78,7 +79,7 @@ export const Header = async () => {
           </Select>
           <Input
             placeholder="Search Products..."
-            className="border-none focus:outline-none"
+            className="border-none focus:outline-none dark:bg-[#020817]"
           />
           <Button className="bg-[#FCB700] rounded-e-3xl rounded-s-none h-[50px]">
             Search
@@ -98,6 +99,9 @@ export const Header = async () => {
               <SlHandbag size={35} />
               <span>My Cart</span>
             </div>
+        <div className="">
+            <ModeToggle />
+        </div>
           </div>
         </div>
         <div className="lg:hidden ">
@@ -146,6 +150,9 @@ export const Header = async () => {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
+               <div className="mt-3">
+            <ModeToggle />
+        </div>
             </DrawerContent>
           </Drawer>
         </div>

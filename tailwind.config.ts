@@ -10,9 +10,7 @@ const config = {
   ],
   prefix: "",
   theme: {
-    // screens: {
-    //   xl: "1200px",
-    // },
+ 
     screens: {
       xs: "360px",
       sm: "576px",
@@ -29,9 +27,9 @@ const config = {
     extend: {
       container: {
         center: true,
-        padding: "2rem",
+        padding: "20px",
         screens: {
-          "2xl": "1400px",
+          "xl": "1440px",
         },
       },
       colors: {
