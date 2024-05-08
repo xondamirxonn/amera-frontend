@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
-import { SampleNextArrow, SamplePrevArrow } from "../arrow/arrow";
+import { SampleNextArrow, SamplePrevArrow } from "../home/arrow/arrow";
 
 interface PropsType {
   children: React.ReactNode;
@@ -20,8 +20,8 @@ export const BannerCarusel: React.FC<PropsType> = ({ children }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed:3000,
-    nextArrow: <SampleNextArrow  />,
+    autoplaySpeed: 3000,
+    nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {

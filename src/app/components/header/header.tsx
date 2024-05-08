@@ -95,10 +95,10 @@ export const Header = async () => {
               <CiStar size={35} />
               <span>Favorites</span>
             </div>
-            <div className="flex items-center flex-col">
+            <Link href="/cart"  className="flex items-center flex-col">
               <SlHandbag size={35} />
               <span>My Cart</span>
-            </div>
+            </Link>
         <div className="">
             <ModeToggle />
         </div>

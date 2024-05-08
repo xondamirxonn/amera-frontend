@@ -7,6 +7,7 @@ interface CategoryType {
     title: string,
     image: string,
     children: {  
+      image: string,
       id: number,
       title: string
     }[]

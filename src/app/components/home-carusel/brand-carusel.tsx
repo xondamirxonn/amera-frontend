@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
-import { SampleNextArrow, SamplePrevArrow } from "../arrow/arrow";
+import { SampleNextArrow, SamplePrevArrow } from "../home/arrow/arrow";
 
 interface PropsType {
   children: React.ReactNode;
