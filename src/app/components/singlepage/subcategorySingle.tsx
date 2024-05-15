@@ -1,5 +1,5 @@
 "use client";
-import { getCategoryId } from "@/services/getCategoryId";
+import { getCategoryId } from "@/services/getSubCategoryId";
 import { useParams } from "next/navigation";
 import React from "react";
 

@@ -34,10 +34,14 @@ import {
 } from "@/components/ui/select";
 import { categoryData } from "@/services/getCategory";
 import Layoutbottom from "../home-carusel/layout-bottom/layout-bottom";
-import { ModeToggle } from './../../../components/mode-toggle';
+import { ModeToggle } from "./../../../components/mode-toggle";
+import { useSelector } from "react-redux";
+import { RootState } from "@/app/redux/store";
+import { Badge } from "@/components/ui/badge";
+import dynamic from "next/dynamic";
+const HeaderIcon = dynamic(() => import("./header-icon"), {ssr: false})
 export const Header = async () => {
-  const data = await categoryData();
-  // console.log(data)
+  const data = await categoryData()
   return (
     <div className="w-full fixed dark:bg-[#020817]   bg-white z-50 ">
       <div className="container sm:flex sm:flex-col md:flex-row md:items-center justify-between hidden   items-center pt-2 ">
@@ -68,10 +72,10 @@ export const Header = async () => {
             <SelectTrigger className="w-[180px] border-none focus:outline-none bg-transparent">
               <SelectValue placeholder="All Categories" />
             </SelectTrigger>
-            
+
             <SelectContent>
               <SelectGroup>
-                {data.results.map((item) => (
+                {data?.results?.map((item) => (
                   <SelectItem value={item.title}>{item.title}</SelectItem>
                 ))}
               </SelectGroup>
@@ -79,14 +83,14 @@ export const Header = async () => {
           </Select>
           <Input
             placeholder="Search Products..."
-            className="border-none focus:outline-none dark:bg-[#020817]"
+            className="border-none focus:outline-none  dark:bg-[#020817]"
           />
           <Button className="bg-[#FCB700] rounded-e-3xl rounded-s-none h-[50px]">
             Search
           </Button>
         </div>
         <div className="lg:block hidden ">
-          <div className="flex items-center gap-5">
+          {/* <div className="flex items-center gap-5">
             <div className="flex items-center flex-col">
               <LuLayers size={35} />
               <span>Compare</span>
@@ -95,14 +99,16 @@ export const Header = async () => {
               <CiStar size={35} />
               <span>Favorites</span>
             </div>
-            <Link href="/cart"  className="flex items-center flex-col">
+            <Link href="/cart" className="flex items-center flex-col">
               <SlHandbag size={35} />
+              <Badge>{products.length}</Badge>
               <span>My Cart</span>
             </Link>
-        <div className="">
-            <ModeToggle />
-        </div>
-          </div>
+            <div className="">
+              <ModeToggle />
+            </div>
+          </div> */}
+          <HeaderIcon />
         </div>
         <div className="lg:hidden ">
           <Drawer direction="left">
@@ -150,9 +156,9 @@ export const Header = async () => {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-               <div className="mt-3">
-            <ModeToggle />
-        </div>
+              <div className="mt-3">
+                <ModeToggle />
+              </div>
             </DrawerContent>
           </Drawer>
         </div>

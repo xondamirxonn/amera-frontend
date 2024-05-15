@@ -13,6 +13,7 @@ import { HomeSideMenu } from "./components/home/homeSideMenu/HomeSideMenu";
 import { TopCategories } from "./components/TopCategories/TopCategories";
 const Home = async () => {
 
+
   return (
     <div className="container">
       <div className=" flex items-start gap-5 pt-4">
