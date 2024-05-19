@@ -9,6 +9,11 @@ import { BannerCarusel } from "../home-carusel/banner-carusel";
 import { ProductCarusel } from "../Product-carusel/product-carusel";
 import ImageZoom from "../ImageZoom/ImageZoom";
 import { RootState } from "@/app/redux/store";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import { CiHeart } from "react-icons/ci";
+import { addList, removeList } from "@/app/redux/reducer/wishlist-reducer";
+import { FcLike } from "react-icons/fc";
 
 interface Type {
   id: number;
@@ -31,10 +36,9 @@ interface Type {
 const ProductSingle: React.FC<Type> = (props) => {
   const { products } = useSelector((state: RootState) => state.product);
   const cart = products.find((item) => item.id == props.id);
-  console.log(props);
-
+  const { wishlists } = useSelector((state: RootState) => state.wishlist);
   const dispatch = useDispatch();
-
+  const like = wishlists.find((item) => item.id == props.id);
   const AddCart = () => {
     dispatch(add(props));
   };
@@ -42,56 +46,19 @@ const ProductSingle: React.FC<Type> = (props) => {
   const RemoveCart = () => {
     dispatch(remove({ id: props.id }));
   };
-  return (
-    // <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-    //   <div className="">
-    //     <ProductCarusel>
-    //       {props?.images?.map((item) => (
-    //         <div>
-    //           <div className="block lg:hidden ">
-    //             <img
-    //               className="  mx-auto md:h-[400px] md:object-cover h-[200px] object-contain"
-    //               src={item.image}
-    //             />
-    //           </div>
-    //           <div className="hidden lg:block">
-    //             <ImageZoom
-    //               smallImageSrc={item?.image}
-    //               largeImageSrc={item?.image}
-    //             />
-    //           </div>
-    //         </div>
-    //       ))}
-    //     </ProductCarusel>
-    //     <div className="grid grid-cols-2 items-center pt-10 gap-5">
-    //       {props?.images?.map((item) => (
-    //         <img className="h-[15vh] object-contain" src={item.image} />
-    //       ))}
-    //     </div>
-    //   </div>
-    //   <div className="flex flex-col gap-4  w-full lg:w-[75%] text-md">
-    //     <h1 className="font-medium text-2xl lg:text-start text-center">
-    //       {props.title}
-    //     </h1>
-    //     <strong className="text-xl">${props.price}</strong>
-    //     <p dangerouslySetInnerHTML={{ __html: props.other_detail }}></p>
-    //     <h1>{props.quantity}</h1>
 
-    //     <Button
-    //       onClick={!cart ? () => AddCart() : () => RemoveCart()}
-    //       className={
-    //         !cart
-    //           ? "bg-[#FCB700] hover:bg-none rounded-[30px] w-[150px] "
-    //           : "bg-rose-500 hover:bg-none rounded-[30px] w-[150px] "
-    //       }
-    //     >
-    //       {!cart ? "Add To Cart" : "Remove Cart"}
-    //     </Button>
-    //   </div>
-    // </div>
+  const AddLike = () => {
+    dispatch(addList(props));
+  };
+
+  const RemoveLike = () => {
+    dispatch(removeList({ id: props.id }));
+  };
+
+  return (
     <div>
-      <div className="grid grid-cols-1 ">
-        {props?.images?.length === 1 ? (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg2:gap-10 ">
+        {/* {props?.images?.length === 1 ? (
           <img
             className="mx-auto md:h-[400px] md:object-cover h-[200px] object-contain"
             src={props?.images[0]?.image}
@@ -115,15 +82,56 @@ const ProductSingle: React.FC<Type> = (props) => {
               </div>
             ))}
           </ProductCarusel>
-        )}
+        )} */}
+
+        <Carousel
+          showStatus={false}
+          stopOnHover={false}
+          swipeable={false}
+          transitionTime={1000}
+        >
+          {props.images.map((item) => (
+            <div className="flex">
+              <img
+                className="max-h-[200px] object-contain lg2:max-h-[600px] "
+                src={item.image}
+                alt=""
+              />
+            </div>
+          ))}
+        </Carousel>
+
         <div className="">
-          <h1 className="font-medium text-xl text-center pt-8">
+          {!like ? (
+            <div
+              className="flex justify-end items-center gap-2"
+              
+            >
+              <CiHeart onClick={() => AddLike()} className=" cursor-pointer" />
+
+              <span className="hidden md:block">Add Wishlist</span>
+            </div>
+          ) : (
+            <div
+              className="flex justify-end items-center gap-2 "
+              
+            >
+              <FcLike onClick={() => RemoveLike()} className=" cursor-pointer" />
+
+              <span className="hidden md:block">in wishlist</span>
+            </div>
+          )}
+          <h1 className="font-medium text-xl text-center lg:text-start pt-8">
             {props.title}
           </h1>
-          <div className="text-start flex flex-col gap-5">
+          <div className="text-start flex flex-col gap-5 ">
             <div className="flex item-center gap-3 pt-4">
               <span>Price:</span>
               <strong>${props.price}</strong>
+            </div>
+            <div className="flex item-center gap-3 ">
+              <span>Quantity:</span>
+              <strong>{props.quantity}</strong>
             </div>
             <div dangerouslySetInnerHTML={{ __html: props.other_detail }}></div>
             <Button

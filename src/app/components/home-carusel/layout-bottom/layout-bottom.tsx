@@ -14,6 +14,9 @@ import { ImGithub } from "react-icons/im";
 import { FcGoogle } from "react-icons/fc";
 import { Input } from "@/components/ui/input";
 import { signIn, signOut } from "next-auth/react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/app/redux/store";
+import { Badge } from "@/components/ui/badge";
 const Layoutbottom = () => {
   const { data } = useSession();
     const handleAuth = () => {
@@ -26,6 +29,9 @@ const Layoutbottom = () => {
   const handleAuthFaceBook = () => {
     signIn("facebook", { redirect: true, callbackUrl: "/" });
   }
+
+  const { count } = useSelector((state: RootState) => state.product);
+  const { countWishlist } = useSelector((state: RootState) => state.wishlist);
   return (
     <div className="w-full lg:hidden dark:bg-[#020817] fixed bg-white p-3 bottom-0 right-0 left-0 ">
       {/* <div className=''> */}
@@ -40,7 +46,7 @@ const Layoutbottom = () => {
           ) : (
             <DrawerTrigger asChild>
               <img
-              className="rounded-full w-[25px] h-[25px]"
+                className="rounded-full w-[25px] h-[25px]"
                 src={String(data?.user?.image)}
                 alt={String(data?.user?.name)}
               />
@@ -86,15 +92,11 @@ const Layoutbottom = () => {
                 />
                 <div className="flex items-end gap-3">
                   <h1 className="">Name:</h1>
-                  <span className=" font-medium">
-                    {data?.user?.name}
-                  </span>
+                  <span className=" font-medium">{data?.user?.name}</span>
                 </div>
                 <div className="flex items-end gap-3">
                   <h1 className="text">Email:</h1>
-                  <span className="text- font-medium">
-                    {data?.user?.email}
-                  </span>
+                  <span className="text- font-medium">{data?.user?.email}</span>
                 </div>
                 <Button
                   onClick={() => signOut()}
@@ -106,14 +108,28 @@ const Layoutbottom = () => {
             )}
           </DrawerContent>
         </Drawer>
-        <Link href="/wishlist">
+        <Link href="/wishlist" className="relative">
           <CiStar size={25} />
+          <div className="absolute -top-1 -right-2  ">
+            <Badge className="bg-[#FCB700] w-[20px] h-[20px] p-2  rounded-full">
+              <span className={countWishlist >= 10 ? "-ml-1.5" : "-ml-0.5"}>
+                {countWishlist}
+              </span>
+            </Badge>
+          </div>
         </Link>
         <li>
           <LuLayers size={25} />
         </li>
-        <Link href="/cart">
+        <Link href="/cart" className="relative">
           <SlHandbag size={25} />
+          <div className="absolute -top-1 -right-2 ">
+            <Badge className="bg-[#FCB700] w-[20px] h-[20px] p-2  rounded-full ">
+              <span className={count >= 10 ? "-ml-1.5" : "-ml-0.5"}>
+                {count}
+              </span>
+            </Badge>
+          </div>
         </Link>
       </ul>
       {/* </div> */}

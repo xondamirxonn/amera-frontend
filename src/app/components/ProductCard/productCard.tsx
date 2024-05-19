@@ -91,8 +91,10 @@ const ProductCard = (props: Type) => {
               {!cart ? "Add To Cart" : "Remove Cart"}
             </Button>
           </div>
-          <div className="hidden sm:flex sm:flex-col sm:gap-3 absolute  sm:translate-x-[60px] sm:group-hover:translate-x-0  right-3      sm:duration-300 ">
-            <ProductModal {...props} />
+          <div className=" lg2:flex lg2:flex-col lg2:gap-3 absolute  lg2:translate-x-[60px] lg2:group-hover:translate-x-0  right-3  flex flex-col gap-3    lg2:duration-300 ">
+            <div className="hidden lg2:block">
+              <ProductModal  {...props} />
+            </div>
             <Button
               onClick={!wishlist ? AddWishlist : RemoveWishlist}
               size="icon"

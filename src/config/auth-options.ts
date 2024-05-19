@@ -4,7 +4,6 @@ import GitHubProvider from "next-auth/providers/github";
 import FacebookProvider from "next-auth/providers/facebook";
 
 
-import React from "react";
 
 export const authOptions: AuthOptions = {
   providers: [

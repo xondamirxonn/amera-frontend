@@ -52,11 +52,11 @@ console.log(wishlists)
     dispatch(addList(props));
   };
   return (
-    <div>
+    <div >
       <Button
         onClick={() => setOpen(true)}
         size="icon"
-        className="rounded-full border bg-white hover:bg-[#FCB700]"
+        className=" rounded-full border bg-white hover:bg-[#FCB700]"
       >
         <IoEyeOutline  color="black" size={25} />
       </Button>

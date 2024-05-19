@@ -13,15 +13,15 @@ const CategorySingle: NextPage<{ params: { id: string } }> = async ({
   const data = await getCategoriesId(params.id);
   console.log(data);
   return (
-    <div className="flex w-full container pt-[3%]">
-      <div className="w-[25%] fixed z-50">
+    <div className="flex w-full lg:container   pt-[3%]">
+      <div className=" sticky ">
         <CategoryList categoryId={Number(params.id)} />
       </div>
-      <div className="lg:ml-[30%] ml-auto mr-auto">
+      <div className="mx-auto ">
         {data.children.length ? (
-          <div className="grid grid-cols-1  sm:grid-cols-2  lg:grid-cols-3   gap-5  container ">
+          <div className="grid grid-cols-1  sm:grid-cols-2  lg:grid-cols-2 lg2:grid-cols-3 lg2:gap-10  gap-5  container ">
             {data?.children?.map((child) => (
-              <div className="min-w-[300px] sm:min-w-[250px] mx-auto">
+              <div className="sm:min-w-[250px]  ">
                 <SubCaregoryCard {...child} key={child.id} />
               </div>
             ))}

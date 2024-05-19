@@ -40,8 +40,8 @@ const WishlistCard: React.FC<WishlistItem> = (props) => {
     dispatch(removeList({ id }));
   };
   return (
-    <div>
-      <div className="border lg:border-none lg:hover:shadow-lg transition-all duration-500 rounded-sm bg-white p-3 w-[300px]  md:w-[350px] lg:w-[280px]  flex flex-col justify-between min-h-[50vh] sm:min-h-[50vh] md:min-h-[35vh] lg:min-h-[30vh] relative  group overflow-hidden">
+    <div className="">
+      <div className="border lg:border-none lg:hover:shadow-lg transition-all duration-500 rounded-sm bg-white p-3 w-[300px]  md:w-[350px] lg:w-[280px]  flex flex-col justify-between min-h-[50vh] sm:min-h-[50vh] md:min-h-[35vh] lg:min-h-[30vh] relative  group overflow-hidden mx-auto">
         <Link href={`/product/${props.id}`}>
           <div className=" mx-auto  overflow-clip ">
             <img
@@ -72,7 +72,7 @@ const WishlistCard: React.FC<WishlistItem> = (props) => {
             {!cart ? "Add To Cart" : "Remove Cart"}
           </Button>
         </div>
-        <div className="hidden sm:flex sm:flex-col sm:gap-3 absolute  sm:translate-x-[60px] sm:group-hover:translate-x-0  right-3      sm:duration-300 ">
+        <div className=" lg2:flex lg2:flex-col lg2:gap-3 absolute  lg2:translate-x-[60px] lg2:group-hover:translate-x-0  right-3      lg2:duration-300 ">
           {/* <ProductModal {...props} /> */}
           <Button
             onClick={() => RemoveWishlist(props.id)}

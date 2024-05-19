@@ -15,9 +15,8 @@ const SubCategoryList = async ({ subcategoryId }: Type) => {
   const data = await getSubcategory();
   return (
     <div className="">
-      <div className=" h-[80vh] hidden lg:block fixed w-[350px]   overflow-auto rounded-md border p-4 ">
-        
-        <ScrollArea >
+      <div className=" h-[80vh]   hidden lg:block   sticky w-[350px]   overflow-auto rounded-md border p-4">
+        <ScrollArea>
           {data.results.map((item) => (
             <Link href={`/subcategory/${item.id}`} key={item.id}>
               <div className="mt-2 border-b py-2 mb-3">
@@ -31,10 +30,10 @@ const SubCategoryList = async ({ subcategoryId }: Type) => {
           ))}
         </ScrollArea>
       </div>
-      <div className="block lg:hidden pt-[200px]">
+      <div className="block lg:hidden fixed z-50 pt-[300px]">
         <Drawer direction="left">
           <DrawerTrigger asChild>
-            <Button className="rounded-s-none bg-white  border" >
+            <Button className="rounded-s-none bg-white  border">
               <ImEqualizer color="gray" size={20} />
             </Button>
           </DrawerTrigger>

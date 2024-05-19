@@ -5,7 +5,7 @@ const WishlistComponent = dynamic(() => import("@/app/components/wishlist/wishli
 
 const WishListPage = () => {
   return (
-    <div>
+    <div className=''>
       <WishlistComponent    />
     </div>
   )

@@ -11,8 +11,8 @@ interface Type {
 export const CategoryList = async ({ categoryId }: Type) => {
   const data = await categoryData();
   return (
-    <div>
-      <div className="h-[80vh] hidden lg:block fixed w-[350px]   overflow-auto rounded-md border p-4 ">
+    <div className="">
+      <div className="h-[80vh]   hidden lg:block   sticky w-[350px] z-50   overflow-auto rounded-md border p-4 ">
         <ScrollArea>
           {data.results.map((item) => (
             <Link href={`/category/${item.id}`} key={item.id}>
@@ -25,7 +25,7 @@ export const CategoryList = async ({ categoryId }: Type) => {
           ))}
         </ScrollArea>
       </div>
-      <div className="block lg:hidden pt-[200px]">
+      <div className="block lg:hidden fixed z-50  pt-[300px]">
         <Drawer direction="left">
           <DrawerTrigger asChild>
             <Button className="rounded-s-none bg-white  border">
