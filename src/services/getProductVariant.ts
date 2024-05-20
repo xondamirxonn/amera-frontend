@@ -14,9 +14,11 @@ interface Type {
     product: number;
     attribute_value: [];
     other_detail: string;
-    price: string;
-    price_with_discount: string;
+    price: number;
+    price_with_discount: null;
     quantity: number;
+    userPrice: number;
+    userCount: number;
   }[];
 }
 export const getProductVariant = async (): Promise<Type> => {

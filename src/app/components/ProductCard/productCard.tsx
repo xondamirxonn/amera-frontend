@@ -56,7 +56,7 @@ const ProductCard = (props: Type) => {
   return (
     <div>
       <div className="">
-        <div className="border lg:border-none lg:hover:shadow-lg transition-all duration-500 rounded-sm bg-white p-3 w-[300px]  md:w-[350px] lg:w-[280px]  flex flex-col justify-between min-h-[50vh] sm:min-h-[50vh] md:min-h-[35vh] lg:min-h-[30vh] relative  group overflow-hidden">
+        <div className="border lg:border-none lg:hover:shadow-lg transition-all duration-500 rounded-sm bg-white p-3 w-[300px]  md:w-[350px] lg:w-[280px]  flex flex-col justify-between min-h-[50vh] sm:min-h-[50vh] md:min-h-[35vh] lg:min-h-[30vh] relative  group overflow-hidden mx-auto">
           <Link href={`/product/${props.id}`}>
             <div className=" mx-auto  overflow-clip ">
               <img

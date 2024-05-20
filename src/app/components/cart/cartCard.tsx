@@ -17,8 +17,6 @@ import {
 } from "@/components/ui/table";
 
 const CartCard = () => {
- 
-
   const { products, totalPrice, count } = useSelector(
     (state: RootState) => state.product
   );
@@ -138,21 +136,25 @@ const CartCard = () => {
                       <TableCell>${parseInt(item.price.toString())}</TableCell>
                       <TableCell>
                         <div className="flex gap-5 items-center justify-between border p-1 max-w-[150px]">
-                          <Button
-                            className="w-[30px] h-[30px] bg-white text-black"
-                            onClick={() => RemoveCount(item.id)}
-                            disabled={item.userCount <= 1}
-                          >
-                            -
-                          </Button>
-                          <span>{item.userCount}</span>
-                          <Button
-                            className="w-[30px] h-[30px] bg-white text-black"
-                            onClick={() => AddCount(item.id)}
-                            disabled={item.userCount === item.quantity}
-                          >
-                            +
-                          </Button>
+                          
+                            <div>
+                              <Button
+                                className="w-[30px] h-[30px] bg-white text-black"
+                                onClick={() => RemoveCount(item.id)}
+                                disabled={item.userCount <= 1}
+                              >
+                                -
+                              </Button>
+                              <span>{item.userCount}</span>
+                              <Button
+                                className="w-[30px] h-[30px] bg-white text-black"
+                                onClick={() => AddCount(item.id)}
+                                disabled={item.userCount === item.quantity}
+                              >
+                                +
+                              </Button>
+                            </div>
+                        
                         </div>
                       </TableCell>
                       <TableCell>${item.userPrice}</TableCell>

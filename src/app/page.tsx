@@ -11,9 +11,10 @@ import { Information } from "./components/home/ServiceCard/information";
 import { Banner } from "./components/home/Banner/Banner";
 import { HomeSideMenu } from "./components/home/homeSideMenu/HomeSideMenu";
 import { TopCategories } from "./components/TopCategories/TopCategories";
+import TopFlash from "./components/top-flash/top-flash";
+import Img4 from "@/app/images/img4.jpg";
+import Img5 from "@/app/images/img5.jpg";
 const Home = async () => {
-
-
   return (
     <div className="container">
       <div className=" flex items-start gap-5 pt-4">
@@ -46,35 +47,22 @@ const Home = async () => {
           description="For all oders over $120"
         />
       </section>
-      <section className="flex pt-9 lg:flex-row flex-col gap-4 justify-center items-center">
-        <div className="w-full ">
-          <Image
-            className="w-full  h-[20vh] lg:min-h-[150px]"
-            priority
-            src={Img1}
-            alt="img1"
-          />
-        </div>
-        <div className="w-full">
-          <Image
-            className="w-full  h-[20vh] lg:min-h-[150px]"
-            priority
-            src={Img2}
-            alt="img2"
-          />
-        </div>
-        <div className="w-full">
-          <Image
-            className="w-full  h-[20vh] lg:min-h-[150px]"
-            priority
-            src={Img3}
-            alt="img3"
-          />
-        </div>
+      <section className="grid pt-9 lg2:grid-cols-3  grid-cols-1 gap-4 w-full ">
+        <Image className="w-full" priority src={Img1} alt="img1" />
+        <Image className="w-full " priority src={Img2} alt="img2" />
+        <Image className="w-full" priority src={Img3} alt="img3" />
       </section>
 
       <section className="pt-8">
         <TopCategories />
+      </section>
+      <section className="pt-14">
+        <TopFlash />
+      </section>
+
+      <section className="grid grid-cols-1 lg2:grid-cols-2 gap-5 pt-8">
+        <Image src={Img4} alt="banner-img" className="w-full" />
+        <Image src={Img5} alt="banner-img" className="w-full" />
       </section>
     </div>
   );

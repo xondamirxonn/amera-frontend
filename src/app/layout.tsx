@@ -5,7 +5,7 @@ import { Header } from "./components/header/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Reduxprovider } from "@/provider/redux-provider";
 import { NextAuthProvider } from "@/provider/next-auth-provider";
-import Footer from './components/footer/footer';
+import Footer from "./components/footer/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function RootLayout({
               disableTransitionOnChange
             >
               <Header />
-              <div className="sm:pt-[120px]  pt-[80px] pb-24 bg-[#F5F6F9 ] min-h-[100vh] dark:bg-[#020810]">
+              <div className="sm:pt-[120px]  pt-[80px] pb-24  min-h-[100vh] dark:bg-[#020810]">
                 {children}
               </div>
               <Footer />

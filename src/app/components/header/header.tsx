@@ -34,15 +34,18 @@ import {
 } from "@/components/ui/select";
 import { categoryData } from "@/services/getCategory";
 // import Layoutbottom from "../home-carusel/layout-bottom/layout-bottom";
-import { ModeToggle } from "./../../../components/mode-toggle";
+import { ModeToggle } from "../../../components/mode-toggle";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/redux/store";
 import { Badge } from "@/components/ui/badge";
 import dynamic from "next/dynamic";
-const HeaderIcon = dynamic(() => import("./header-icon"), {ssr: false})
-const Layoutbottom = dynamic(() => import("../home-carusel/layout-bottom/layout-bottom"), {ssr: false})
+const HeaderIcon = dynamic(() => import("./header-icon"), { ssr: false });
+const Layoutbottom = dynamic(
+  () => import("../home-carusel/layout-bottom/layout-bottom"),
+  { ssr: false }
+);
 export const Header = async () => {
-  const data = await categoryData()
+  const data = await categoryData();
   return (
     <div className="w-full fixed dark:bg-[#020817]   bg-white z-50 ">
       <div className="container sm:flex sm:flex-col md:flex-row md:items-center justify-between hidden   items-center pt-2 ">
