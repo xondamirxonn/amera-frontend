@@ -48,7 +48,10 @@ const CartCard = () => {
                 </div>
                 <div className="flex gap-3 items-start">
                   <div>
-                    <img
+                    <Image
+                      priority
+                      width={200}
+                      height={200}
                       className="max-w-[300px] w-[120px] h-[120px] max-h-[120px] object-contain"
                       src={item?.images[0]?.image}
                       alt=""
@@ -126,7 +129,10 @@ const CartCard = () => {
                         />
                       </TableCell>
                       <TableCell>
-                        <img
+                        <Image
+                          priority
+                          width={200}
+                          height={200}
                           className="max-w-[300px] w-[120px] h-[120px] max-h-[120px] object-contain"
                           src={item?.images[0]?.image}
                           alt={item.title}
@@ -136,25 +142,23 @@ const CartCard = () => {
                       <TableCell>${parseInt(item.price.toString())}</TableCell>
                       <TableCell>
                         <div className="flex gap-5 items-center mx-auto justify-between border p-1 max-w-[150px]">
-                          
-                            <div>
-                              <Button
-                                className="w-[60px] h-[30px] bg-white text-black"
-                                onClick={() => RemoveCount(item.id)}
-                                disabled={item.userCount <= 1}
-                              >
-                                -
-                              </Button>
-                              <span>{item.userCount}</span>
-                              <Button
-                                className="w-[60px] h-[30px] bg-white text-black"
-                                onClick={() => AddCount(item.id)}
-                                disabled={item.userCount === item.quantity}
-                              >
-                                +
-                              </Button>
-                            </div>
-                        
+                          <div>
+                            <Button
+                              className="w-[60px] h-[30px] bg-white text-black"
+                              onClick={() => RemoveCount(item.id)}
+                              disabled={item.userCount <= 1}
+                            >
+                              -
+                            </Button>
+                            <span>{item.userCount}</span>
+                            <Button
+                              className="w-[60px] h-[30px] bg-white text-black"
+                              onClick={() => AddCount(item.id)}
+                              disabled={item.userCount === item.quantity}
+                            >
+                              +
+                            </Button>
+                          </div>
                         </div>
                       </TableCell>
                       <TableCell>${item.userPrice}</TableCell>

@@ -1,4 +1,5 @@
 import React from "react";
+import  {Suspense} from "react"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { TbTruckDelivery } from "react-icons/tb";
@@ -8,7 +9,7 @@ import Img3 from "@/app/images/img3.jpg";
 import { getBrand } from "@/services/getBrand";
 import Image from "next/image";
 import { Information } from "./components/home/ServiceCard/information";
-import { Banner } from "./components/home/Banner/Banner";
+// import { Banner } from "./components/home/Banner/Banner";
 import { HomeSideMenu } from "./components/home/homeSideMenu/HomeSideMenu";
 import { TopCategories } from "./components/TopCategories/TopCategories";
 import TopFlash from "./components/top-flash/top-flash";
@@ -21,15 +22,22 @@ import Img7 from "@/app/images/img7.jpg";
 import Img8 from "@/app/images/img8.jpg";
 import Brand from "./components/Brand/brand";
 import AllCategories from "./components/AllCategory/allCategories";
+import Loading  from "./components/home/Banner/loading";
+import dynamic from "next/dynamic"
+const Banner = dynamic(() => import("./components/home/Banner/Banner"), {ssr:false})
 const Home = async () => {
   return (
     <div className="container">
       <div className=" flex items-start gap-5 pt-4">
         <div className="w-[25%] border lg2:block hidden shadow-xl p-3  max-h-[72.1vh] overflow-y-auto">
-          <HomeSideMenu />
+        <Suspense fallback={<Loading />}>
+            <HomeSideMenu />
+        </Suspense>
         </div>
         <div className=" lg2:w-[75%] w-full">
-          <Banner />
+          <Suspense fallback={<Loading />}>
+            <Banner />
+          </Suspense>
         </div>
       </div>
       <section className="pt-14 block lg2:hidden  ">

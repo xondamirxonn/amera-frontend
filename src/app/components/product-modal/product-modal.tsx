@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "@/app/redux/reducer/cart-reducer";
 import Link from "next/link";
 import { addList } from "@/app/redux/reducer/wishlist-reducer";
+import Image from "next/image";
 
 interface Type {
   id: number;
@@ -23,7 +24,7 @@ interface Type {
   title: string;
   images: {
     image: string;
-    image_id: number
+    image_id: number;
   }[];
   product: number;
   attribute_value: [];
@@ -31,8 +32,8 @@ interface Type {
   price: number;
   price_with_discount: null;
   quantity: number;
-  userPrice: number,
-  userCount: number
+  userPrice: number;
+  userCount: number;
 }
 const ProductModal = (props: Type) => {
   const [open, setOpen] = useState(false);
@@ -40,7 +41,7 @@ const ProductModal = (props: Type) => {
   const { wishlists } = useSelector((state: any) => state.wishlist);
   const cart = products.find((item: any) => item.id == props.id);
   const dispatch = useDispatch();
-console.log(wishlists)
+  console.log(wishlists);
   const AddCart = () => {
     dispatch(add(props));
   };
@@ -52,21 +53,25 @@ console.log(wishlists)
     dispatch(addList(props));
   };
   return (
-    <div >
+    <div>
       <Button
         onClick={() => setOpen(true)}
         size="icon"
         className=" rounded-full border bg-white hover:bg-[#FCB700]"
       >
-        <IoEyeOutline  color="black" size={25} />
+        <IoEyeOutline color="black" size={25} />
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="w-[1000px] ">
           <div className="flex gap-10 items-start">
             <div className="w-[45%] ">
-              <img
+              <Image
+                priority
+                width={200}
+                height={200}
                 className="w-[400px] object-cover max-h-[60vh]"
                 src={props.images[0].image}
+                alt={props.title}
               />
             </div>
             <div className="flex flex-col gap-3 w-[65%] max-h-[80vh] overflow-auto">

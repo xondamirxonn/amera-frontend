@@ -1,6 +1,7 @@
 import RateIcon from "@/app/images/icon/rate";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 interface ProductType {
   id: number;
   is_available: boolean;
@@ -23,7 +24,10 @@ const ProductCards = (props: ProductType) => {
     <div className="p-5 hover:shadow-md transition-all duration-500">
       <div className="flex gap-5 items-center">
         <div>
-          <img
+          <Image
+            priority
+            width={200}
+            height={200}
             className="max-w-[300px] w-[120px] h-[120px] max-h-[120px] object-contain"
             src={props.images[0].image}
             alt={props.title}

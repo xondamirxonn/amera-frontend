@@ -1,9 +1,8 @@
-import { categoryData } from "@/services/getCategory"
+import { getCaregoryLimit } from "@/services/getCategoryLimit";
 import { CategoryCard } from "../CategoryCard/CategoryCard"
 
 export const TopCategories = async () => {
-  const data = await categoryData()
-  const filter = data?.results?.filter((item) => item.children.length > 0)
+  const data = await getCaregoryLimit()
   return (
     <div>
       <div className="flex items-center gap-3 pb-4">

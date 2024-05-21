@@ -2,6 +2,7 @@ import { add, remove } from "@/app/redux/reducer/cart-reducer";
 import { removeList } from "@/app/redux/reducer/wishlist-reducer";
 import { RootState } from "@/app/redux/store";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { CiStar } from "react-icons/ci";
@@ -44,9 +45,13 @@ const WishlistCard: React.FC<WishlistItem> = (props) => {
       <div className="border lg:border-none lg:hover:shadow-lg transition-all duration-500 rounded-sm bg-white p-3 w-[300px]  md:w-[350px] lg:w-[280px]  flex flex-col justify-between min-h-[50vh] sm:min-h-[50vh] md:min-h-[35vh] lg:min-h-[30vh] relative  group overflow-hidden mx-auto">
         <Link href={`/product/${props.id}`}>
           <div className=" mx-auto  overflow-clip ">
-            <img
+            <Image
+              priority
+              width={200}
+              height={200}
               className="w-[300px] mx-auto min-h-[250px] max-h-[200px]  object-contain duration-1000  group-hover:scale-[0.9]  "
               src={props?.images[0]?.image}
+              alt={props.title}
             />
           </div>
           <div className="text-center ">

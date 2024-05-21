@@ -39,11 +39,14 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/app/redux/store";
 import { Badge } from "@/components/ui/badge";
 import dynamic from "next/dynamic";
+// import SearchInput from "./search-input";
 const HeaderIcon = dynamic(() => import("./header-icon"), { ssr: false });
 const Layoutbottom = dynamic(
   () => import("../home-carusel/layout-bottom/layout-bottom"),
   { ssr: false }
 );
+const SearchInput = dynamic(() => import("./search-input"), { ssr: false });
+
 export const Header = async () => {
   const data = await categoryData();
   return (
@@ -59,7 +62,6 @@ export const Header = async () => {
           </ul>
         </div>
       </div>
-      {/* <div className="border border-b-0 mt-2 sm:block hidden w-[100%]"></div> */}
       <div className="p-5 flex items-center justify-between container">
         <Link href="/">
           <Image priority className="max-sm:w-[130px]" src={Logo} alt="logo" />
@@ -71,7 +73,7 @@ export const Header = async () => {
             <Link href="tel:06900678900">06-900-6789-00</Link>
           </div>
         </div>
-        <div className="lg:flex hidden items-center border border-[#FCB700] rounded-3xl  ">
+        {/* <div className="lg:flex hidden items-center border border-[#FCB700] rounded-3xl  ">
           <Select>
             <SelectTrigger className="w-[180px] border-none focus:outline-none bg-transparent">
               <SelectValue placeholder="All Categories" />
@@ -92,26 +94,11 @@ export const Header = async () => {
           <Button className="bg-[#FCB700] rounded-e-3xl rounded-s-none h-[50px]">
             Search
           </Button>
+        </div> */}
+        <div className="lg:flex hidden   ">
+          <SearchInput />
         </div>
         <div className="lg:block hidden ">
-          {/* <div className="flex items-center gap-5">
-            <div className="flex items-center flex-col">
-              <LuLayers size={35} />
-              <span>Compare</span>
-            </div>
-            <div className="flex items-center flex-col">
-              <CiStar size={35} />
-              <span>Favorites</span>
-            </div>
-            <Link href="/cart" className="flex items-center flex-col">
-              <SlHandbag size={35} />
-              <Badge>{products.length}</Badge>
-              <span>My Cart</span>
-            </Link>
-            <div className="">
-              <ModeToggle />
-            </div>
-          </div> */}
           <HeaderIcon />
         </div>
         <div className="lg:hidden ">

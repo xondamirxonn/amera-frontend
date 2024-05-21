@@ -11,6 +11,7 @@ import { CiStar } from "react-icons/ci";
 import ProductModal from "../product-modal/product-modal";
 import { RootState } from "@/app/redux/store";
 import { addList, removeList } from "@/app/redux/reducer/wishlist-reducer";
+import Image from "next/image";
 
 interface Type {
   id: number;
@@ -59,9 +60,13 @@ const ProductCard = (props: Type) => {
         <div className="border lg:border-none lg:hover:shadow-lg transition-all duration-500 rounded-sm bg-white p-3 w-[300px]  md:w-[350px] lg:w-[280px]  flex flex-col justify-between min-h-[50vh] sm:min-h-[50vh] md:min-h-[35vh] lg:min-h-[30vh] relative  group overflow-hidden mx-auto">
           <Link href={`/product/${props.id}`}>
             <div className=" mx-auto  overflow-clip ">
-              <img
+              <Image
+                priority
+                width={200}
+                height={200}
                 className="w-[300px] mx-auto min-h-[250px] max-h-[200px]  object-contain duration-1000  group-hover:scale-[0.9]  "
                 src={props?.images[0]?.image}
+                alt={props.title}
               />
               {/* <img
                 className="w-[300px] mx-auto min-h-[250px] max-h-[200px]  object-contain absolute top-0  opacity-0 transition-opacity duration-1000 group-hover:opacity-100"
@@ -93,7 +98,7 @@ const ProductCard = (props: Type) => {
           </div>
           <div className=" lg2:flex lg2:flex-col lg2:gap-3 absolute  lg2:translate-x-[60px] lg2:group-hover:translate-x-0  right-3  flex flex-col gap-3    lg2:duration-300 ">
             <div className="hidden lg2:block">
-              <ProductModal  {...props} />
+              <ProductModal {...props} />
             </div>
             <Button
               onClick={!wishlist ? AddWishlist : RemoveWishlist}

@@ -14,6 +14,7 @@ import { Carousel } from "react-responsive-carousel";
 import { CiHeart } from "react-icons/ci";
 import { addList, removeList } from "@/app/redux/reducer/wishlist-reducer";
 import { FcLike } from "react-icons/fc";
+import Image from "next/image";
 
 interface Type {
   id: number;
@@ -93,9 +94,12 @@ const ProductSingle: React.FC<Type> = (props) => {
           {props.images.map((item) => (
             <div className="flex">
               <img
+                // priority
+                width={200}
+                height={200}
                 className="max-h-[200px] object-contain lg2:max-h-[600px] "
                 src={item.image}
-                alt=""
+                alt="image"
               />
             </div>
           ))}
@@ -103,20 +107,17 @@ const ProductSingle: React.FC<Type> = (props) => {
 
         <div className="">
           {!like ? (
-            <div
-              className="flex justify-end items-center gap-2"
-              
-            >
+            <div className="flex justify-end items-center gap-2">
               <CiHeart onClick={() => AddLike()} className=" cursor-pointer" />
 
               <span className="hidden md:block">Add Wishlist</span>
             </div>
           ) : (
-            <div
-              className="flex justify-end items-center gap-2 "
-              
-            >
-              <FcLike onClick={() => RemoveLike()} className=" cursor-pointer" />
+            <div className="flex justify-end items-center gap-2 ">
+              <FcLike
+                onClick={() => RemoveLike()}
+                className=" cursor-pointer"
+              />
 
               <span className="hidden md:block">in wishlist</span>
             </div>
