@@ -14,7 +14,7 @@ const Footer = () => {
       <Button className="rounded-none bg-[#4D5669] w-full" onClick={ToTop}>
         Back To Top
       </Button>
-      <div className="bg-[#394150]  p-5 w-full">
+      <div className="bg-[#394150]  p-5 w-full p-5">
         <div className="grid grid-cols-1 lg2:grid-cols-4 md:grid-cols-2 container text-white gap-5">
           <ul>
             <li>

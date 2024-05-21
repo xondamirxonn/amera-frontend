@@ -71,15 +71,15 @@ const TableCard = () => {
                     alt={item.title}
                   />
                 </TableCell>
-                <TableCell>
-                  <Link href={`/product/${item.id}`}>{item?.title}</Link>
+                <TableCell className="w-[200px]">
+                  <Link href={`/product/${item.id}`} className="hover:text-[#FCB700]">{item?.title}</Link>
                 </TableCell>
                 <TableCell>${parseInt(item.price.toString())}</TableCell>
                 <TableCell>
                   <div className="flex gap-5 items-center mx-auto justify-between border p-1 max-w-[150px]">
                     <div>
                       <Button
-                        className="w-[60px] h-[30px] bg-white text-black"
+                        className="w-[40px] h-[30px] bg-white text-black"
                         onClick={() => RemoveCount(item.id)}
                         disabled={item.userCount <= 1}
                       >
@@ -87,7 +87,7 @@ const TableCard = () => {
                       </Button>
                       <span>{item.userCount}</span>
                       <Button
-                        className="w-[60px] h-[30px] bg-white text-black"
+                        className="w-[40px] h-[30px] bg-white text-black"
                         onClick={() => AddCount(item.id)}
                         disabled={item.userCount === item.quantity}
                       >
