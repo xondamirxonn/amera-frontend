@@ -34,7 +34,7 @@ interface Type {
 const ProductCard = (props: Type) => {
   const { products } = useSelector((state: RootState) => state.product);
   const { wishlists } = useSelector((state: RootState) => state.wishlist);
-  console.log(wishlists);
+  
   const cart = products.find((item) => item.id == props.id);
   const wishlist = wishlists.find((item) => item.id == props.id);
   const dispatch = useDispatch();
@@ -68,10 +68,6 @@ const ProductCard = (props: Type) => {
                 src={props?.images[0]?.image}
                 alt={props.title}
               />
-              {/* <img
-                className="w-[300px] mx-auto min-h-[250px] max-h-[200px]  object-contain absolute top-0  opacity-0 transition-opacity duration-1000 group-hover:opacity-100"
-                src={props?.images[0]?.image}
-              /> */}
             </div>
             <div className="text-center ">
               <h1 title={props.title} className="text-[#0066C8] pt-2">

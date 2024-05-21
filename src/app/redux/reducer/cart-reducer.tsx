@@ -54,7 +54,7 @@ const product = createSlice({
           ],
         };
       }
-      console.log(state, action, "action");
+      
 
       return state;
     },

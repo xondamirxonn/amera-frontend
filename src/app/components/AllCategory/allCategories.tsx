@@ -12,7 +12,7 @@ const AllCategories = async () => {
       
       <AllCategoriesCarusel>
         {data.results.map((item) => (
-          <Link href={`/category/${item.id}`} className="">
+          <Link key={item.id} href={`/category/${item.id}`} className="">
             <div className="flex flex-col  items-center justify-center gap-3 shadow-md ">
               <div>
                 <Image

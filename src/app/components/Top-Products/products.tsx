@@ -1,11 +1,11 @@
-import { getProductVariant } from "@/services/getProductVariant";
 import React from "react";
 import ProductMultipleCarusel from "../Product-Multiple-Carusel/product-multiple-carusel";
 import ProductCards from "../ProductCard2/ProductCards";
 import SubcategoryCardImg from "./subcategory-card";
+import { getProductVariantLimit } from "@/services/getProductVariantLimit";
 
 const Products = async () => {
-  const data = await getProductVariant();
+  const data = await getProductVariantLimit();
   return (
       <div className="grid grid-cols-1 lg2:grid-cols-4 gap-12 w-full">
       <div className="lg2:col-span-1">
@@ -19,7 +19,7 @@ const Products = async () => {
       </div>
       <div className="lg2:col-span-3">
         <ProductMultipleCarusel>
-          {data.results.slice(0, 12).map((item) => (
+          {data.results.map((item) => (
             <div className="p-1 pb-2" key={item.id}>
               <ProductCards {...item} />
             </div>

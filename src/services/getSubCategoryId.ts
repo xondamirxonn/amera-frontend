@@ -28,7 +28,7 @@ export const getCategoryId = async (id: string | undefined): Promise<Type> => {
       { next: { revalidate: 10 } }
     );
     const data = await res.json();
-console.log(data);
+
 
     return data;
   } catch (error) {

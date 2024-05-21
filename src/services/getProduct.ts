@@ -22,7 +22,6 @@ export const getProduct = async (id: string | undefined): Promise<Type> => {
       next: { revalidate: 10 },
     });
 
-    console.log(res, "lorem");
 
     const data = res.json();
 

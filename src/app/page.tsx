@@ -9,7 +9,9 @@ import Img3 from "@/app/images/img3.jpg";
 import { getBrand } from "@/services/getBrand";
 import Image from "next/image";
 import { Information } from "./components/home/ServiceCard/information";
-// import { Banner } from "./components/home/Banner/Banner";
+import { CiCreditCard1 } from "react-icons/ci";
+import { PiHandCoins } from "react-icons/pi";
+import { PiChats } from "react-icons/pi";
 import { HomeSideMenu } from "./components/home/homeSideMenu/HomeSideMenu";
 import { TopCategories } from "./components/TopCategories/TopCategories";
 import TopFlash from "./components/top-flash/top-flash";
@@ -30,9 +32,9 @@ const Home = async () => {
     <div className="container">
       <div className=" flex items-start gap-5 pt-4">
         <div className="w-[25%] border lg2:block hidden shadow-xl p-3  max-h-[72.1vh] overflow-y-auto">
-        <Suspense fallback={<Loading />}>
+          <Suspense fallback={<Loading />}>
             <HomeSideMenu />
-        </Suspense>
+          </Suspense>
         </div>
         <div className=" lg2:w-[75%] w-full">
           <Suspense fallback={<Loading />}>
@@ -50,19 +52,19 @@ const Home = async () => {
           description="For all oders over $120"
         />
         <Information
-          icon={<TbTruckDelivery color="yellow" size={35} />}
-          title="FREE DELIVERY"
-          description="For all oders over $120"
+          icon={<CiCreditCard1 color="yellow" size={35} />}
+          title="SAFE PAYMENT"
+          description="100% secure payment"
         />
         <Information
-          icon={<TbTruckDelivery color="yellow" size={35} />}
-          title="FREE DELIVERY"
-          description="For all oders over $120"
+          icon={<PiHandCoins color="yellow" size={35} />}
+          title="SHOP WITH CONFIDENCE"
+          description="If goods have problems"
         />
         <Information
-          icon={<TbTruckDelivery color="yellow" size={35} />}
-          title="FREE DELIVERY"
-          description="For all oders over $120"
+          icon={<PiChats color="yellow" size={35} />}
+          title="24/7 HELP CENTER"
+          description="Dedicated 24/7 support"
         />
       </section>
       <section className="grid pt-9 lg2:grid-cols-3  grid-cols-1 gap-4 w-full ">

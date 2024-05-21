@@ -23,7 +23,7 @@ export const HomeSideMenu = async () => {
           <div>
             <Accordion type="single" collapsible className="w-full">
               {category.results.map((item, index) => (
-                <AccordionItem value={`item-${index + 1}`}>
+                <AccordionItem key={item.id} value={`item-${index + 1}`}>
                   <AccordionTrigger>{item.title}</AccordionTrigger>
                   {item.children.length ? (
                     item.children.map((child) =>  (
@@ -32,6 +32,7 @@ export const HomeSideMenu = async () => {
                         className={
                           item.children.length > 1 ? `border-t  w-full  ` : ""
                         }
+                        key={child.id}
                       >
                         <Link
                           href={`/subcategory/${child.id}`}

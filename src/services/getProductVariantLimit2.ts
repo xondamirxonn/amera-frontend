@@ -21,9 +21,9 @@ interface Type {
     userCount: number;
   }[];
 }
-export const getProductVariant = async (): Promise<Type> => {
+export const getProductVariantLimit2 = async (): Promise<Type> => {
   try {
-    const res = await fetch(`http://135.181.108.207/product_variant/`, {
+    const res = await fetch(`http://135.181.108.207/product_variant/?limit=6`, {
       next: { revalidate: 10 },
     });
 

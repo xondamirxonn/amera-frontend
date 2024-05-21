@@ -18,7 +18,7 @@ const SubCategorySingle: NextPage<{ params: { id: string } }> = async ({
 }) => {
   const data = await getCategoryId(params.id);
 
-  console.log(data, "product");
+  
   return (
     <Suspense fallback={"Loading..."}>
       <div className="flex w-full  lg:container  pt-[3%] ">

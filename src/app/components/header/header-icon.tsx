@@ -25,7 +25,7 @@ const HeaderIcon = () => {
   const { data } = useSession();
   const { count } = useSelector((state: RootState) => state.product);
   const { countWishlist } = useSelector((state: RootState) => state.wishlist);
-console.log(data)
+
   const handleAuth = () => {
     signIn("google", { redirect: true, callbackUrl: "/" });
   };

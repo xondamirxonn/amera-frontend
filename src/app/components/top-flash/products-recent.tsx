@@ -1,11 +1,11 @@
-import { getProductVariant } from "@/services/getProductVariant";
 import React from "react";
 import ProductCard from "../ProductCard/productCard";
 import { TopFlashSlider } from "./top-flash-carusel";
+import { getProductVariantLimit2 } from "@/services/getProductVariantLimit2";
 // import { TopFlashSlider } from "./top-flash-carusel";
 
 const ProductsRecent = async () => {
-  const productData = await getProductVariant();
+  const productData = await getProductVariantLimit2();
   return (
     <div >
       <TopFlashSlider>

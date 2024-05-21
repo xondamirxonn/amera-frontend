@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { FaXmark } from "react-icons/fa6";
 import { ImEqualizer } from "react-icons/im";
 
-
 interface Type {
   subcategoryId: number;
 }

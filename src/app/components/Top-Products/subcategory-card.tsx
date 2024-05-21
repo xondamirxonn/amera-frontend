@@ -1,12 +1,12 @@
-import { getSubcategory } from "@/services/getSubcategory";
+import { getSubcategoryLimit } from "@/services/getSubCategoryLimit";
 import Image from "next/image";
 import React from "react";
 
 const SubcategoryCardImg = async () => {
-  const data = await getSubcategory();
+  const data = await getSubcategoryLimit();
   return (
     <div className="">
-      {data.results.slice(0, 1).map((item) => (
+      {data.results.map((item) => (
         <div className="">
           <Image
             priority

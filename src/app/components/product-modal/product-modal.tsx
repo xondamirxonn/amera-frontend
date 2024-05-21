@@ -41,7 +41,7 @@ const ProductModal = (props: Type) => {
   const { wishlists } = useSelector((state: any) => state.wishlist);
   const cart = products.find((item: any) => item.id == props.id);
   const dispatch = useDispatch();
-  console.log(wishlists);
+  
   const AddCart = () => {
     dispatch(add(props));
   };

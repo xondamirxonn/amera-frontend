@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { BannerCarusel } from "../home-carusel/banner-carusel";
 import { ProductCarusel } from "../Product-carusel/product-carusel";
-import ImageZoom from "../ImageZoom/ImageZoom";
 import { RootState } from "@/app/redux/store";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -58,33 +57,7 @@ const ProductSingle: React.FC<Type> = (props) => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg2:gap-10 ">
-        {/* {props?.images?.length === 1 ? (
-          <img
-            className="mx-auto md:h-[400px] md:object-cover h-[200px] object-contain"
-            src={props?.images[0]?.image}
-          />
-        ) : (
-          <ProductCarusel>
-            {props?.images?.map((item) => (
-              <div>
-                <div className="block lg:hidden ">
-                  <img
-                    className="  mx-auto md:h-[400px] md:object-cover h-[200px] object-contain"
-                    src={item.image}
-                  />
-                </div>
-                <div className="hidden lg:block">
-                  <ImageZoom
-                    smallImageSrc={item?.image}
-                    largeImageSrc={item?.image}
-                  />
-                </div>
-              </div>
-            ))}
-          </ProductCarusel>
-        )} */}
-
+      <div key={props.id} className="grid grid-cols-1 md:grid-cols-2 lg2:gap-10 ">
         <Carousel
           showStatus={false}
           stopOnHover={false}
@@ -92,11 +65,8 @@ const ProductSingle: React.FC<Type> = (props) => {
           transitionTime={1000}
         >
           {props.images.map((item) => (
-            <div className="flex">
+            <div key={item.image_id} className="flex">
               <img
-                // priority
-                width={200}
-                height={200}
                 className="max-h-[200px] object-contain lg2:max-h-[600px] "
                 src={item.image}
                 alt="image"

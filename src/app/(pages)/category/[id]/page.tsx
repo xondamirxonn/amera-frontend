@@ -11,7 +11,7 @@ const CategorySingle: NextPage<{ params: { id: string } }> = async ({
   params,
 }) => {
   const data = await getCategoriesId(params.id);
-  console.log(data);
+  
   return (
     <div className="flex w-full lg:container   pt-[3%]">
       <div className=" sticky ">
