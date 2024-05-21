@@ -15,11 +15,11 @@ const Brand = async () => {
         {data.results.map((item) => (
           <div>
             <Image
-              priority
+              // priority
               
               width={200}
               height={200}
-              className="w-[300px] mx-auto min-h-[200px] max-h-[150px]  object-contain "
+              className="w-[300px]  mx-auto min-h-[200px] max-h-[150px]  object-contain "
               src={item.image}
               alt={item.title}
             />

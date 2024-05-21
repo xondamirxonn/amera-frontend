@@ -35,8 +35,32 @@ const Layoutbottom = () => {
   const { countWishlist } = useSelector((state: RootState) => state.wishlist);
   return (
     <div className="w-full lg:hidden dark:bg-[#020817] fixed bg-white p-3 bottom-0 right-0 left-0 ">
-      {/* <div className=''> */}
+   
       <ul className="flex justify-around items-center">
+        <Link href="/">
+          <GoHome size={25} />
+
+        </Link>
+        <Link href="/wishlist" className="relative">
+          <CiStar size={25} />
+          <div className="absolute -top-1 -right-2  ">
+            <Badge className="bg-[#FCB700] w-[20px] h-[20px] p-2  rounded-full">
+              <span className={countWishlist >= 10 ? "-ml-1.5" : "-ml-0.5"}>
+                {countWishlist}
+              </span>
+            </Badge>
+          </div>
+        </Link>
+        <Link href="/cart" className="relative">
+          <SlHandbag size={25} />
+          <div className="absolute -top-1 -right-2 ">
+            <Badge className="bg-[#FCB700] w-[20px] h-[20px] p-2  rounded-full ">
+              <span className={count >= 10 ? "-ml-1.5" : "-ml-0.5"}>
+                {count}
+              </span>
+            </Badge>
+          </div>
+        </Link>
         <Drawer direction="bottom">
           {!data ? (
             <DrawerTrigger asChild>
@@ -109,30 +133,6 @@ const Layoutbottom = () => {
             )}
           </DrawerContent>
         </Drawer>
-        <Link href="/wishlist" className="relative">
-          <CiStar size={25} />
-          <div className="absolute -top-1 -right-2  ">
-            <Badge className="bg-[#FCB700] w-[20px] h-[20px] p-2  rounded-full">
-              <span className={countWishlist >= 10 ? "-ml-1.5" : "-ml-0.5"}>
-                {countWishlist}
-              </span>
-            </Badge>
-          </div>
-        </Link>
-        <Link href="/">
-          <GoHome size={25} />
-
-        </Link>
-        <Link href="/cart" className="relative">
-          <SlHandbag size={25} />
-          <div className="absolute -top-1 -right-2 ">
-            <Badge className="bg-[#FCB700] w-[20px] h-[20px] p-2  rounded-full ">
-              <span className={count >= 10 ? "-ml-1.5" : "-ml-0.5"}>
-                {count}
-              </span>
-            </Badge>
-          </div>
-        </Link>
       </ul>
       {/* </div> */}
     </div>

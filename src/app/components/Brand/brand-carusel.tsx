@@ -15,7 +15,6 @@ interface PropsType {
 
 export const BrandCarusel: React.FC<PropsType> = ({ children }) => {
   var settings = {
-    
     // infinite: false,
     speed: 500,
     slidesToShow: 4,
@@ -62,7 +61,7 @@ export const BrandCarusel: React.FC<PropsType> = ({ children }) => {
           display: "block",
           position: "absolute",
           right: "0px",
-          top: "130px",
+          top: "90px",
         }}
         className="cursor-pointer"
         onClick={onClick}
@@ -82,7 +81,7 @@ export const BrandCarusel: React.FC<PropsType> = ({ children }) => {
           position: "absolute",
           zIndex: "9",
           left: "0px",
-          top: "130px",
+          top: "90px",
         }}
         onClick={onClick}
         className="cursor-pointer"

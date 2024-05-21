@@ -21,7 +21,7 @@ interface ProductType {
 }
 const ProductCards = (props: ProductType) => {
   return (
-    <div className="p-5 hover:shadow-md transition-all duration-500">
+    <div className="p-5 hover:shadow-md shadow-md lg2:shadow-none transition-all duration-500">
       <div className="flex gap-5 items-center">
         <div>
           <Image
