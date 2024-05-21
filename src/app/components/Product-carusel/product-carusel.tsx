@@ -3,9 +3,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FcNext, FcPrevious  } from "react-icons/fc";
-
-
+import { FcNext, FcPrevious } from "react-icons/fc";
 
 const settings = {
   infinite: true,
@@ -24,12 +22,12 @@ function SimpleNextArrow(props: any) {
         ...style,
         display: "block",
         position: "absolute",
-       top: "50%",
+        top: "50%",
       }}
       className="cursor-pointer right-3 lg:right-[50px] text-[25px]"
       onClick={onClick}
     >
-     <FcNext /> 
+      <FcNext />
     </div>
   );
 }
@@ -48,8 +46,7 @@ function SimplePrevArrow(props: any) {
       onClick={onClick}
       className="cursor-pointer left-3 lg:left-[50px] text-[25px]"
     >
-     <FcPrevious />
-
+      <FcPrevious />
     </div>
   );
 }

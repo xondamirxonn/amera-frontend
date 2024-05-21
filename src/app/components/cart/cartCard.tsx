@@ -36,7 +36,7 @@ const CartCard = () => {
     <div>
       {products.length ? (
         <div>
-          <div className=" lg:hidden container grid grid-cols-1 gap-4">
+          <div className=" lg:hidden  grid grid-cols-1 gap-4">
             {products.map((item) => (
               <div key={item.id} className="border flex flex-col p-3 ">
                 <div className="flex justify-end ">
@@ -107,7 +107,7 @@ const CartCard = () => {
               </div>
             </div>
           </div>
-          <div className="hidden lg:block container pt-[3%] ">
+          <div className="hidden lg:block  pt-[3%] ">
             <div className="flex items-start justify-between">
               <Table className="border w-[90%]">
                 <TableHead></TableHead>
@@ -135,11 +135,11 @@ const CartCard = () => {
                       <TableCell>{item.title}</TableCell>
                       <TableCell>${parseInt(item.price.toString())}</TableCell>
                       <TableCell>
-                        <div className="flex gap-5 items-center justify-between border p-1 max-w-[150px]">
+                        <div className="flex gap-5 items-center mx-auto justify-between border p-1 max-w-[150px]">
                           
                             <div>
                               <Button
-                                className="w-[30px] h-[30px] bg-white text-black"
+                                className="w-[60px] h-[30px] bg-white text-black"
                                 onClick={() => RemoveCount(item.id)}
                                 disabled={item.userCount <= 1}
                               >
@@ -147,7 +147,7 @@ const CartCard = () => {
                               </Button>
                               <span>{item.userCount}</span>
                               <Button
-                                className="w-[30px] h-[30px] bg-white text-black"
+                                className="w-[60px] h-[30px] bg-white text-black"
                                 onClick={() => AddCount(item.id)}
                                 disabled={item.userCount === item.quantity}
                               >

@@ -20,7 +20,7 @@ interface SubCategoryType {
 }
 const TopFlashCard = (props: SubCategoryType) => {
   return (
-    <div className="shadow-xl p-4 flex flex-col w-full lg2:flex-row gap-4 mx-auto bg-white items-center ">
+    <div className="shadow-md- p-4 flex flex-col w-full lg2:flex-row gap-4 mx-auto bg-white items-center ">
  
         <div>
           <img

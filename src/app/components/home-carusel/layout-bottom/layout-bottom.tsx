@@ -2,8 +2,9 @@
 
 import React from "react";
 import { AiOutlineUser } from "react-icons/ai";
-import { LuLayers } from "react-icons/lu";
 import { CiStar } from "react-icons/ci";
+import { GoHome } from "react-icons/go";
+
 import { SlHandbag } from "react-icons/sl";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
@@ -118,9 +119,10 @@ const Layoutbottom = () => {
             </Badge>
           </div>
         </Link>
-        <li>
-          <LuLayers size={25} />
-        </li>
+        <Link href="/">
+          <GoHome size={25} />
+
+        </Link>
         <Link href="/cart" className="relative">
           <SlHandbag size={25} />
           <div className="absolute -top-1 -right-2 ">
